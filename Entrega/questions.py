@@ -1,22 +1,28 @@
 import random
 
-words = [
-    "python",
-    "programa",
-    "variable",
-    "funcion",
-    "bucle",
-    "cadena",
-    "entero",
-    "lista",
-] 
-
-word = random.choice(words)
-guessed = []
-attempts = 6
+# AGRUPO LA LISTA DE PALABRAS POR CATEGORÍAS
+categorias = {
+    "tipos_datos": ["cadena", "entero", "lista"],
+    "conceptos": ["python", "programa", "variable", "funcion", "bucle"]
+}
 
 print("¡Bienvenido al Ahorcado!")
 print()
+
+# MUESTRO CATEGORIAS DISPONIBLES
+print("Categorías disponibles:")
+for cat in categorias:
+    print(f". {cat}")
+
+# ELEGIR CATEGORIA POSIBLE
+categoria = input("Elegí una categoría: ")
+while categoria not in categorias:
+    categoria = input("Categoría inválida, elegí nuevamente entre las de la lista: ")
+
+# SELECCIONO AL AZAR UNA PALABRA DE LA CATEGORIA SELECCIONADA
+word = random.choice(categorias[categoria])
+guessed = []
+attempts = 6
 
 # INICIALIZO VARIABLE DEL PUNTAJE
 puntaje = 0
