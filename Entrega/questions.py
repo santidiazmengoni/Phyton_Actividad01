@@ -38,6 +38,12 @@ while attempts > 0:
 
     letter = input("Ingresá una letra: ")
 
+    # AGREGO MODIFICACIÓN, NO SE PUEDE INGRESAR MAS DE UNA LETRA, UN NÚMERO O OTRO CARÁCTER INVÁLIDO
+    if len(letter) > 1 or not letter.isalpha():
+        print(f"Entrada no válida")
+        print()
+        continue
+
     if letter in guessed:
         print("Ya usaste esa letra.")
     elif letter in word:
